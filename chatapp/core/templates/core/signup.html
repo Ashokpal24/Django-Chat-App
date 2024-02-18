@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Sign up |  {% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="columns">
+        <div class="column is-4 is-offset-4">
+            <h1 class="title has-text-centered">Sign up</h1>
+            <form method="post" action=".">
+                {% csrf_token %}
+
+                {% for field in form %}
+                <p>
+                    <label>{{ field.label_tag }}</label>
+                    <div class="control">
+                        {{ field }}
+                    </div>
+                    {% if field.help_text %}
+                    <br>
+                    <small style="color: grey">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                    <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                </p>
+                <br>
+                {% endfor %}
+                <div class="field">
+                    <div class="control">
+                        <button class="button">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -26,9 +26,12 @@ SECRET_KEY = "django-insecure-)4n8l&u9f(jh^fg&bv4ip3(2(5m8y!=f5lht#mnxaexg^=^q97
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '93dx6r-8000.csb.app'
+    'nkt65c-8000.csb.app'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://nkt65c-8000.csb.app'
+]
 
 # Application definition
 
@@ -80,6 +83,10 @@ CHANNEL_LAYERS = {
         'BACKEND': 'channels.layers.InMemoryChannelLayer',
     },
 }
+
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
