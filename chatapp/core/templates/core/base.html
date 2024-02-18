@@ -31,7 +31,13 @@
                 
             </div>
         </nav>
+        {% if request.user.is_authenticated %}
+            <h6>Welcome {{ request.user.get_username }}</h6>
+        {% else %}
+            <h6>Hello there</h6>
+        {% endif %}
         {% block content %}
         {% endblock %}
+        {% block scripts %}{% endblock %}
     </body>
 </html>
